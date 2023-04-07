@@ -46,7 +46,7 @@ def remove(text):
   return text
 
 import nltk
-#nltk.download('stopwords')
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 
 #clean stopwords
