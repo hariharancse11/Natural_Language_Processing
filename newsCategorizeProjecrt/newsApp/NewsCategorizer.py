@@ -1,8 +1,14 @@
 #text = 'Nigel Farage, head of the UK Independence Party and a leading voice in favor of leaving the EU, told Sky News he did not expect to be on the winning side.'
 
 import sklearn
-
+import regex as re
 import joblib
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import PorterStemmer
+import spacy
+
+
 # load the model from disk
 filename = 'finalized_model.sav'
 loaded_model = joblib.load(filename)
@@ -18,7 +24,6 @@ CLASS_NAMES = ['BUSINESS',
  'WELLNESS',
  'WORLD NEWS']
 
-import regex as re
 def remove(text):
   #remove mention
   text = re.sub("@[A-Za-z0-9_]+","", text)
@@ -45,9 +50,9 @@ def remove(text):
   text = re.sub('\s+',' ',text)
   return text
 
-import nltk
+
 nltk.download('stopwords')
-from nltk.corpus import stopwords
+
 
 #clean stopwords
 stopword = set(stopwords.words('english'))
@@ -56,13 +61,13 @@ def clean_stopwords(text):
     return text
 
 
-from nltk.stem import PorterStemmer
+
 ps = PorterStemmer()
 def porterstemmer(text):
   text = ' '.join([ps.stem(word) for word in text.split() if word in text])
   return text
 
-import spacy
+
 nlp = spacy.load('en_core_web_sm')
 
 def lemmatization (text):
