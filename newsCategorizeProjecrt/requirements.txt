@@ -3,6 +3,7 @@ joblib<=1.2.0
 nltk<=3.8.1
 regex<=2023.3.23
 scikit_learn<=1.2.2
-spacy<=3.5.1
 gunicorn<=20.1.0
+spacy==3.2.1
 en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.2.0/en_core_web_sm-3.2.0-py3-none-any.whl
+
