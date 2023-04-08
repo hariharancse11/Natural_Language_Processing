@@ -77,8 +77,8 @@ def lemmatization (text):
    
 import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
-vectorizer = pickle.load(open('vectorizer.pkl', 'rb'))
-
+file = 'vectorizer.sav'
+loaded_model = joblib.load(file)
 
 
 def autoCategorize(txt):
