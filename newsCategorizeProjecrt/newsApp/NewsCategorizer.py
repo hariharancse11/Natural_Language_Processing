@@ -74,9 +74,12 @@ def lemmatization (text):
     doc = nlp(text)
     tokens = [token.lemma_.lower() for token in doc if not token.is_stop and not token.is_punct]
     return ' '.join(tokens)
-
+   
+import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
-vectorizer = TfidfVectorizer()
+vectorizer = joblib.load('vectorizer.pkl')
+
+
 
 def autoCategorize(txt):
   res = remove(txt.lower())
