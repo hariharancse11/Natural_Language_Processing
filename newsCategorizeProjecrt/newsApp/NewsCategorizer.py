@@ -75,9 +75,9 @@ def lemmatization (text):
     tokens = [token.lemma_.lower() for token in doc if not token.is_stop and not token.is_punct]
     return ' '.join(tokens)
    
-import joblib
+import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
-vectorizer = joblib.load('vectorizer.pkl')
+vectorizer = pickle.load(open('vectorizer.pkl', 'rb'))
 
 
 
